@@ -15,3 +15,16 @@ def montaJogo(nome,preco,quantidade):
     else:
         return -1
     
+
+#Monta um jogo e o inclui no estoque na última posição
+
+def incluiJogo(estoque,nome,preco,quantidade):
+    jogo = montaJogo(nome,preco,quantidade)
+    
+    if(jogo == -1):
+        return -1
+    
+    estoque.append(jogo)
+    
+    return estoque
+    
