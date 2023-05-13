@@ -79,6 +79,8 @@ def testeIncluiJogos():
     else:
         print("Teste falhou\n")
 
+#Testando a função de ordenar estoque
+
 def testeBuscaJogo():
     testesCertos = 0
     #Estoque de exemplo
@@ -115,8 +117,44 @@ def testeBuscaJogo():
     
     else:
         print("Teste falhou\n")
+
+#Testando a função de acrescentar jogos
+
+def testeAcrescentaJogo():
+    #Estoque de exemplo
+    testesCertos = 0
+    
+    estoque = []
+    jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
+    precos = [20.00,45.50,56.79,48.99,3.99]
+    qtds = [8,20,50,35,90]
+    
+    for i in range(len(jogos)):
+        incluiJogo(estoque,jogos[i],precos[i],qtds[i])
+    
+    #teste que acrescenta a quantidade do jogo xadrez
+    
+    acrescentaJogo("Xadrez",estoque)
+    
+    if(testaResultados(18,estoque[4]["qtd"])):
+        testesCertos += 1
+    
+    #teste que não acrescenta a quantidade do jogo que não existe
+    
+    acrescentaJogo("Jogo da velha",estoque)
+    
+    if(testaResultados(-1,acrescentaJogo("Jogo da velha",estoque))):    
+        testesCertos += 1
         
+    #Verificando os testes que falharam e passaram
+    
+    if(testesCertos == 2):
+        print("Teste passou com sucesso!\n")
         
+    else:
+        print("Teste falhou\n")
+
+          
 print("Testando função monta jogos:\n")
 testeMontaJogos()
 
@@ -125,3 +163,6 @@ testeIncluiJogos()
 
 print("Testando função busca jogos:\n")
 testeBuscaJogo()
+
+print("Testando função acrescenta jogos:\n")
+testeAcrescentaJogo()
