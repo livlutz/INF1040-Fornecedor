@@ -39,8 +39,9 @@ def getNome(estoque):
 
 def ordenaEstoque(estoque):
     if isinstance(estoque, list):
-        estoque.sort(key=getNome)
+        estoque.sort(key = getNome)
         return estoque
+    
     else:
         return -1
     
