@@ -44,4 +44,43 @@ def ordenaEstoque(estoque):
     
     else:
         return -1
+
+#Função auxiliar que compara 2 strings de nome
+
+def comparaNomes(nome1,nome2):
+    
+    if(nome1 > nome2):
+        return 1
+    
+    elif (nome1 < nome2):
+        return -1
+    
+    else:
+        return 0
+    
+#Função de buscar jogos por nome no estoque
+    
+def buscaJogo(nome, estoque):
+    inicio = 0
+    fim = len(estoque) - 1
+
+    while inicio <= fim:
+        meio = (inicio + fim) // 2
+        
+        jogo = estoque[meio]
+
+        comp = comparaNomes(nome, jogo['nome'])
+
+        if (comp < 0):
+            fim = meio - 1
+            
+        elif (comp > 0):
+            inicio = meio + 1
+            
+        else:
+            return jogo
+
+    print("Jogo não encontrado\n")
+    return -1
+      
     

@@ -37,7 +37,7 @@ def testeMontaJogos():
     
     else:
         print("Teste falhou\n")
-
+    
 #Testando a função de incluir jogos
 
 def testeIncluiJogos():
@@ -67,8 +67,8 @@ def testeIncluiJogos():
     
     for i in range(len(jogos)):
         incluiJogo(estoque,jogos[i],precos[i],qtds[i])
-    
-    print(estoque)    
+      
+    #Verificando os testes que falharam e passaram 
     
     if(-1 not in estoque):
         testesCertos += 1
@@ -78,10 +78,50 @@ def testeIncluiJogos():
     
     else:
         print("Teste falhou\n")
-        
 
+def testeBuscaJogo():
+    testesCertos = 0
+    #Estoque de exemplo
+    
+    estoque = []
+    jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
+    precos = [20.00,45.50,56.79,48.99,3.99]
+    qtds = [8,20,50,35,90]
+    
+    for i in range(len(jogos)):
+        incluiJogo(estoque,jogos[i],precos[i],qtds[i])
+        
+    #Testes em que o jogo é encontrado
+    
+    #Buscar por detetive
+    
+    if(testaResultados(estoque[1],buscaJogo("Detetive",estoque))):
+       testesCertos += 1
+    
+    #Buscar por xadrez
+    
+    if(testaResultados(estoque[4],buscaJogo("Xadrez",estoque))):
+       testesCertos += 1
+    
+    #Teste que o jogo não é encontrado
+    
+    if(testaResultados(-1,buscaJogo("Jogo da velha",estoque))):
+       testesCertos += 1
+       
+    #Verificando os testes que falharam e passaram
+    
+    if(testesCertos == 3):
+        print("Teste passou com sucesso!\n")
+    
+    else:
+        print("Teste falhou\n")
+        
+        
 print("Testando função monta jogos:\n")
 testeMontaJogos()
 
 print("Testando função inclui jogos:\n")
 testeIncluiJogos()
+
+print("Testando função busca jogos:\n")
+testeBuscaJogo()
