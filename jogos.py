@@ -30,12 +30,12 @@ def incluiJogo(estoque,nome,preco,quantidade):
     
     return estoque
 
-#Função auxiliar que pega o nome de um jogo no estoque
+#Função auxiliar na ordenação que pega o nome de um jogo no estoque
 
 def getNome(estoque):
     return estoque['nome']
 
-#Função auxiliar que ordena os jogos no estoque por ordem alfabética
+#Função auxiliar na inclusão que ordena os jogos no estoque por ordem alfabética
 
 def ordenaEstoque(estoque):
     if isinstance(estoque, list):
@@ -45,7 +45,7 @@ def ordenaEstoque(estoque):
     else:
         return -1
 
-#Função auxiliar que compara 2 strings de nome
+#Função auxiliar para busca que compara 2 strings de nome
 
 def comparaNomes(nome1,nome2):
     
