@@ -26,5 +26,21 @@ def incluiJogo(estoque,nome,preco,quantidade):
     
     estoque.append(jogo)
     
+    estoque = ordenaEstoque(estoque)
+    
     return estoque
+
+#Função auxiliar que pega o nome de um jogo no estoque
+
+def getNome(estoque):
+    return estoque['nome']
+
+#Função auxiliar que ordena os jogos no estoque por ordem alfabética
+
+def ordenaEstoque(estoque):
+    if isinstance(estoque, list):
+        estoque.sort(key=getNome)
+        return estoque
+    else:
+        return -1
     

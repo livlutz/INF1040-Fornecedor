@@ -68,6 +68,8 @@ def testeIncluiJogos():
     for i in range(len(jogos)):
         incluiJogo(estoque,jogos[i],precos[i],qtds[i])
     
+    print(estoque)    
+    
     if(-1 not in estoque):
         testesCertos += 1
     
