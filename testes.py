@@ -195,7 +195,45 @@ def testeRecebePreferencia():
     else:
         print("Teste falhou\n")
     
+#Testando a função de excluir jogos
 
+def testeExcluiJogo():
+    
+    testesCertos=0
+    
+    #Estoque de exemplo
+    
+    estoque = []
+    
+    jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
+    precos = [20.00,45.50,56.79,48.99,3.99]
+    qtds = [8,20,50,35,90]
+    
+    for i in range(len(jogos)):
+        incluiJogo(estoque,jogos[i],precos[i],qtds[i])
+        
+    #Teste que exclui o jogo monopoly
+    
+    excluiJogo("Monopoly",estoque)
+    
+    if(testaResultados(-1,buscaJogo("Monopoly",estoque))):
+        testesCertos += 1
+    
+    #Teste que não exclui o jogo que não existe
+    
+    excluiJogo("Jogo da velha",estoque) 
+    
+    if(testaResultados(-1,excluiJogo("Jogo da velha",estoque))):
+        testesCertos += 1
+    
+    #Verificando os testes que falharam e passaram
+    
+    if(testesCertos == 2):
+        print("Teste passou com sucesso!\n")
+        
+    else:
+        print("Teste falhou\n")
+        
           
 print("Testando função monta jogos:\n")
 testeMontaJogos()
@@ -211,3 +249,6 @@ testeAcrescentaJogo()
 
 print("Testando função recebe preferencia:\n")
 testeRecebePreferencia()
+
+print("Testando função exclui jogos:\n")
+testeExcluiJogo()

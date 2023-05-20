@@ -79,7 +79,6 @@ def buscaJogo(nome, estoque):
         else:
             return jogo
 
-    print("Jogo não encontrado\n")
     return -1
 
 #Função que acrescenta um jogo no estoque
@@ -116,4 +115,14 @@ def preferenciaJogo(nome,preco,estoque):
         
         return nome
         
-        
+#Função de excluir jogo do estoque
+
+def excluiJogo(nome,estoque):
+    jogo = buscaJogo(nome,estoque)
+    
+    if(jogo == -1):
+        return -1
+    
+    estoque.remove(jogo)
+    
+    return nome       
