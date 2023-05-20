@@ -126,3 +126,19 @@ def excluiJogo(nome,estoque):
     estoque.remove(jogo)
     
     return nome       
+
+#Função de alterar dados de um jogo
+
+def alteraJogo(nome,preco,quantidade,estoque):
+    jogo = buscaJogo(nome,estoque)
+    
+    if(jogo == -1):
+        return -1
+    
+    jogo['preco'] = preco
+    jogo['qtd'] = quantidade
+    jogo['nome'] = nome
+    
+    print(jogo)
+    
+    return 1

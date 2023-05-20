@@ -234,7 +234,52 @@ def testeExcluiJogo():
     else:
         print("Teste falhou\n")
         
-          
+ 
+ #Testando a função de altear dados de um jogo
+ 
+def testeAlteraJogo():
+     
+    testesCertos = 0
+     
+    #Estoque de exemplo
+    
+    estoque = []
+    
+    jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
+    precos = [20.00,45.50,56.79,48.99,3.99]
+    qtds = [8,20,50,35,90]
+    
+    for i in range(len(jogos)):
+        incluiJogo(estoque,jogos[i],precos[i],qtds[i])
+    
+    #Teste que altera o preço do jogo monopoly
+    
+    alteraJogo("Monopoly",59.99,50,estoque)
+    
+    if(testaResultados(59.99,buscaJogo("Monopoly",estoque))):
+        testesCertos += 1
+        
+    #Teste que não altera o preço do jogo que não existe
+    
+    if(testaResultados(-1,alteraJogo("Jogo da velha",20.00,10,estoque))):
+        testesCertos += 1
+    
+    #teste que altera a quantidade do jogo detetive
+    
+    alteraJogo("Detetive",48.99,40,estoque)
+    
+    if(testaResultados(40,buscaJogo("Detetive",estoque))):
+        testesCertos += 1
+            
+    #Verificando os testes que falharam e passaram
+    
+    if(testesCertos == 3):
+        print("Teste passou com sucesso!\n")
+        
+    else:
+        print("Teste falhou\n")
+
+
 print("Testando função monta jogos:\n")
 testeMontaJogos()
 
@@ -252,3 +297,6 @@ testeRecebePreferencia()
 
 print("Testando função exclui jogos:\n")
 testeExcluiJogo()
+
+print("Testando função altera jogos:\n")
+testeAlteraJogo()
