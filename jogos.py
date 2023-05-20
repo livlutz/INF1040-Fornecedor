@@ -15,7 +15,6 @@ def montaJogo(nome,preco,quantidade):
     else:
         return -1
     
-    
 #Monta um jogo e o inclui no estoque na última posição
 
 def incluiJogo(estoque,nome,preco,quantidade):
@@ -94,3 +93,27 @@ def acrescentaJogo(nome,estoque):
     jogo['qtd'] += 10
     
     return estoque
+
+#Função que recebe a preferência de um jogo,inclui e acrescenta o jogo no estoque
+
+def preferenciaJogo(nome,preco,estoque):
+    
+    if(buscaJogo(nome,estoque) == -1):
+        estoque = incluiJogo(estoque,nome,preco,0)
+        
+        if(estoque == -1):
+            return -1
+        
+        estoque = acrescentaJogo(nome,estoque)
+        
+        return nome
+    
+    else:
+        estoque = acrescentaJogo(nome,estoque)
+        
+        if(estoque == -1):
+            return -1
+        
+        return nome
+        
+        

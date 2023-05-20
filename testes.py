@@ -154,6 +154,48 @@ def testeAcrescentaJogo():
     else:
         print("Teste falhou\n")
 
+#Testando função de receber preferência de jogo
+
+def testeRecebePreferencia():
+    testesCertos = 0
+    
+    #Estoque de exemplo
+    
+    estoque = []
+    jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
+    precos = [20.00,45.50,56.79,48.99,3.99]
+    qtds = [8,20,50,35,90]
+    
+    for i in range(len(jogos)):
+        incluiJogo(estoque,jogos[i],precos[i],qtds[i])
+        
+    #Teste que retorna o jogo preferido com a quantidade certa
+    
+    if(testaResultados("Damas",preferenciaJogo("Damas",29.90,estoque))):
+        if(testaResultados(10,estoque[1]["qtd"])):
+            testesCertos += 1
+    
+    #Teste que acrescenta um jogo já existente
+    
+    if(testaResultados("Xadrez",preferenciaJogo("Xadrez",20.00,estoque))):
+        if(testaResultados(18,estoque[5]["qtd"])):
+            testesCertos += 1
+            
+    #Teste que há erros na inserção
+    
+    if(testaResultados(-1,preferenciaJogo("Jogo da velha","20.00",estoque))):
+        testesCertos += 1
+        
+    
+    #Verificando os testes que falharam e passaram
+    
+    if(testesCertos == 3):
+        print("Teste passou com sucesso!\n")
+        
+    else:
+        print("Teste falhou\n")
+    
+
           
 print("Testando função monta jogos:\n")
 testeMontaJogos()
@@ -166,3 +208,6 @@ testeBuscaJogo()
 
 print("Testando função acrescenta jogos:\n")
 testeAcrescentaJogo()
+
+print("Testando função recebe preferencia:\n")
+testeRecebePreferencia()
