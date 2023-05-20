@@ -254,26 +254,33 @@ def testeAlteraJogo():
     
     #Teste que altera o preço do jogo monopoly
     
-    alteraJogo("Monopoly",59.99,50,estoque)
+    alteraJogo("Monopoly","Monopoly",60.00,50,estoque)
     
-    if(testaResultados(59.99,buscaJogo("Monopoly",estoque))):
+    if(testaResultados(60.00,estoque[3]['preco'])):
         testesCertos += 1
-        
+   
     #Teste que não altera o preço do jogo que não existe
     
-    if(testaResultados(-1,alteraJogo("Jogo da velha",20.00,10,estoque))):
+    if(testaResultados(-1,alteraJogo("Jogo da velha","Jogo da Velha",20.00,10,estoque))):
         testesCertos += 1
     
     #teste que altera a quantidade do jogo detetive
     
-    alteraJogo("Detetive",48.99,40,estoque)
+    alteraJogo("Detetive","Detetive",48.99,40,estoque)
     
-    if(testaResultados(40,buscaJogo("Detetive",estoque))):
+    if(testaResultados(40,estoque[1]['qtd'])):
         testesCertos += 1
-            
+    
+    #teste que altera o nome do jogo baralho
+    
+    alteraJogo("Baralho","Cartas",3.99,90,estoque)
+    
+    if(testaResultados("Cartas",buscaJogo("Cartas",estoque))):
+        testesCertos += 1
+    
     #Verificando os testes que falharam e passaram
     
-    if(testesCertos == 3):
+    if(testesCertos == 4):
         print("Teste passou com sucesso!\n")
         
     else:
