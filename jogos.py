@@ -141,6 +141,19 @@ def alteraJogo(nomeJogo,nomeNovo,preco,quantidade,estoque):
     
     estoque = ordenaEstoque(estoque)
     
-    print(jogo)
+    return 1
+
+
+#Função que exibe todos os jogos no estoque
+
+def exibeEstoque(estoque):
+    if(len(estoque) == 0):
+        return -1
+    
+    for jogo in estoque:
+        print('Nome: %s '  %(jogo['nome']))
+        print('Preço: %s ' %(str(jogo['preco'])))
+        print('Quantidade: %s ' % (str(jogo['qtd'])))
+        print('-----------------------')
     
     return 1
