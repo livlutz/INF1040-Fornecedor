@@ -16,3 +16,5 @@ Importante: este não é o caso do jogo estar em falta e sim do jogo ainda não
 existir na tabela;
 • Ao receber um novo jogo, ele é acrescentado no estoque do fornecedor em 10
 unidades.
+
+Resources : https://www.geeksforgeeks.org/read-json-file-using-python/
