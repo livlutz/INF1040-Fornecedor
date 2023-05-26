@@ -1,4 +1,4 @@
-#estrutura de dados para armazenar os jogos
+#Estrutura de dados para armazenar os jogos
 
 jogo = {
     'nome' : None,
@@ -11,10 +11,15 @@ jogo = {
 def montaJogo(nome,preco,quantidade):
     if(isinstance(nome,str) and isinstance(preco,float) and isinstance(quantidade,int)):
         novo_jogo = jogo.copy()
+        
         novo_jogo['nome'] = nome
+        
         novo_jogo['preco'] = preco
+        
         novo_jogo['qtd'] = quantidade
+        
         return novo_jogo
+    
     else:
         return -1
     
@@ -26,7 +31,7 @@ def incluiJogo(estoque,nome,preco,quantidade):
         return -1
     
     estoque.append(novo_jogo)
-    estoque.sort(key=getNome)
+    estoque.sort(key = getNome)
     return estoque
 
 #Função auxiliar na ordenação que pega o nome do jogo no estoque
@@ -59,7 +64,7 @@ def buscaJogo(nome,estoque):
         
         meio = (inicio + fim) // 2
         
-        j=estoque[meio]
+        j = estoque[meio]
         
         if(comparaNomes(nome,j['nome']) < 0):
             fim = meio - 1
@@ -130,7 +135,7 @@ def alteraJogo(nomeJogo,nomeNovo,preco,quantidade,estoque):
     jogo['qtd'] = quantidade
     jogo['nome'] = nomeNovo
     
-    estoque.sort(key=getNome)
+    estoque.sort(key = getNome)
     
     return 1
 
@@ -148,7 +153,7 @@ def exibeEstoque(estoque):
     
     return 1
 
-#funcao de solicitar compra de um jogo
+#Função de solicitar compra de um jogo
 
 def solicitaCompra(nome,estoque,valorPagar,qtdCompra):
     j=buscaJogo(nome,estoque)
@@ -170,14 +175,14 @@ def solicitaCompra(nome,estoque,valorPagar,qtdCompra):
         return 1
 
 
-#funcao de vender um jogo
+#Função de vender um jogo
 
 def vendeJogo(nome,estoque,valorPagar,qtdCompra):
     
     if(solicitaCompra(nome,estoque,valorPagar,qtdCompra) == -1):
         return -1
     
-    j=buscaJogo(nome,estoque)
+    j = buscaJogo(nome,estoque)
     
     j['qtd'] -= qtdCompra
     
