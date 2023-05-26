@@ -1,48 +1,38 @@
+#estrutura de dados para armazenar os jogos
+
+jogo = {
+    'nome' : None,
+    'preco': None,
+    'qtd': None
+}
 
 #Monta um novo jogo (dicionário) a partir do seu nome (string), preço (float) e quantidade (int)
 
 def montaJogo(nome,preco,quantidade):
-    
-    if(type(nome) == str and type(preco) == float and type(quantidade) == int):
-        jogo = {
-            'nome' : nome,
-            'preco' : preco,
-            'qtd' : quantidade
-        }
-        
-        return jogo
-    
+    if(isinstance(nome,str) and isinstance(preco,float) and isinstance(quantidade,int)):
+        novo_jogo = jogo.copy()
+        novo_jogo['nome'] = nome
+        novo_jogo['preco'] = preco
+        novo_jogo['qtd'] = quantidade
+        return novo_jogo
     else:
         return -1
     
 #Monta um jogo e o inclui no estoque na última posição
 
 def incluiJogo(estoque,nome,preco,quantidade):
-    jogo = montaJogo(nome,preco,quantidade)
-    
-    if(jogo == -1):
+    novo_jogo = montaJogo(nome, preco, quantidade)
+    if(novo_jogo == -1):   
         return -1
     
-    estoque.append(jogo)
-    
-    estoque = ordenaEstoque(estoque)
-    
+    estoque.append(novo_jogo)
+    estoque.sort(key=getNome)
     return estoque
 
-#Função auxiliar na ordenação que pega o nome de um jogo no estoque
+#Função auxiliar na ordenação que pega o nome do jogo no estoque
 
-def getNome(estoque):
-    return estoque['nome']
-
-#Função auxiliar na inclusão que ordena os jogos no estoque por ordem alfabética
-
-def ordenaEstoque(estoque):
-    if isinstance(estoque, list):
-        estoque.sort(key = getNome)
-        return estoque
-    
-    else:
-        return -1
+def getNome(jogo):
+    return jogo['nome']
 
 #Função auxiliar para busca que compara 2 strings de nome
 
@@ -59,26 +49,27 @@ def comparaNomes(nome1,nome2):
     
 #Função de buscar jogos por nome no estoque
     
-def buscaJogo(nome, estoque):
+def buscaJogo(nome,estoque):
+    global jogo
+    
     inicio = 0
     fim = len(estoque) - 1
-
-    while inicio <= fim:
+    
+    while(inicio <= fim):
+        
         meio = (inicio + fim) // 2
         
-        jogo = estoque[meio]
-
-        comp = comparaNomes(nome, jogo['nome'])
-
-        if (comp < 0):
+        j=estoque[meio]
+        
+        if(comparaNomes(nome,j['nome']) < 0):
             fim = meio - 1
-            
-        elif (comp > 0):
+        
+        elif(comparaNomes(nome,j['nome']) > 0): 
             inicio = meio + 1
-            
+        
         else:
-            return jogo
-
+            return j
+        
     return -1
 
 #Função que acrescenta um jogo no estoque
@@ -139,10 +130,9 @@ def alteraJogo(nomeJogo,nomeNovo,preco,quantidade,estoque):
     jogo['qtd'] = quantidade
     jogo['nome'] = nomeNovo
     
-    estoque = ordenaEstoque(estoque)
+    estoque.sort(key=getNome)
     
     return 1
-
 
 #Função que exibe todos os jogos no estoque
 
@@ -155,5 +145,42 @@ def exibeEstoque(estoque):
         print('Preço: %s ' %(str(jogo['preco'])))
         print('Quantidade: %s ' % (str(jogo['qtd'])))
         print('-----------------------')
+    
+    return 1
+
+#funcao de solicitar compra de um jogo
+
+def solicitaCompra(nome,estoque,valorPagar,qtdCompra):
+    j=buscaJogo(nome,estoque)
+    
+    if(j == -1):
+        print("Jogo não encontrado")
+        return -1
+    
+    elif(qtdCompra > j['qtd']):
+        print("Quantidade insuficiente no estoque")
+        return -1
+    
+    elif(valorPagar < j['preco']):
+        print("Valor insuficiente")
+        return -1
+    
+    else:
+        print("Compra autorizada")
+        return 1
+
+
+#funcao de vender um jogo
+
+def vendeJogo(nome,estoque,valorPagar,qtdCompra):
+    
+    if(solicitaCompra(nome,estoque,valorPagar,qtdCompra) == -1):
+        return -1
+    
+    j=buscaJogo(nome,estoque)
+    
+    j['qtd'] -= qtdCompra
+    
+    print("Compra realizada com sucesso")
     
     return 1

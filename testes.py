@@ -295,7 +295,6 @@ def testeAlteraJogo():
     else:
         print("Teste falhou\n")
 
-
 #Testando a função de exibir jogos no estoque
 
 def testeExibeJogos():
@@ -329,6 +328,55 @@ def testeExibeJogos():
     else:
         print("Teste falhou\n")
 
+
+#Testando a função de venda de jogos
+
+def testeVendaJogo():
+    
+    testesCertos = 0
+    
+    #Estoque de exemplo
+    
+    estoque = []
+    
+    jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
+    precos = [20.00,45.50,56.79,48.99,3.99]
+    qtds = [8,20,50,35,90]
+    
+    for i in range(len(jogos)):
+        incluiJogo(estoque,jogos[i],precos[i],qtds[i])
+        
+    #Teste que vende 1 jogo monopoly
+    
+    vendeJogo("Monopoly",estoque,56.79,1)
+    
+    if(testaResultados(49,estoque[3]['qtd'])):
+        testesCertos += 1
+    
+    #Teste que tenta comprar 9 jogos de xadrez e não consegue
+    
+    if(testaResultados(-1,vendeJogo("Xadrez",estoque,180.00,9))):
+        testesCertos += 1
+        
+    #Teste que tenamos comprar 2 jogos de baralho e nao tem dinheiro suficiente
+    
+    if(testaResultados(-1,vendeJogo("Baralho",estoque,3.50,2))):
+        testesCertos += 1
+        
+    #Teste que tenta comprar um jogo que não existe
+    
+    if(testaResultados(-1,vendeJogo("Jogo da velha",estoque,20.00,1))):
+        testesCertos += 1
+    
+    #Verificando os testes que falharam e passaram
+    
+    if(testesCertos == 4):
+        print("Teste passou com sucesso!\n")
+    
+    else:
+        print("Teste falhou\n")
+    
+    
 print("Testando função monta jogos:\n")
 testeMontaJogos()
 
@@ -352,3 +400,6 @@ testeAlteraJogo()
 
 print("Testando função exibe jogos:\n")
 testeExibeJogos()
+
+print("Testando função vende jogos:\n")
+testeVendaJogo()
