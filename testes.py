@@ -234,9 +234,6 @@ def testeExcluiJogo():
     else:
         print("Teste 6 falhou\n")
         
- 
- #Testando a função de altear dados de um jogo
-
 #Testando a função de alterar dados de um jogo
 
 def testeAlteraJogo():
