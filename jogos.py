@@ -18,20 +18,27 @@ def montaJogo(nome,preco,quantidade):
         
         novo_jogo['qtd'] = quantidade
         
+        print("Jogo montado com sucesso\n")
+        
         return novo_jogo
     
     else:
+        print("Erro: dados inválidos\n")
         return -1
     
 #Monta um jogo e o inclui no estoque na última posição
 
 def incluiJogo(estoque,nome,preco,quantidade):
     novo_jogo = montaJogo(nome, preco, quantidade)
-    if(novo_jogo == -1):   
+    if(novo_jogo == -1):
+        print("Erro: dados inválidos, não foi possível incluir o jogo\n")   
         return -1
     
     estoque.append(novo_jogo)
     estoque.sort(key = getNome)
+    
+    print("Jogo incluído com sucesso\n")
+    
     return estoque
 
 #Função auxiliar na ordenação que pega o nome do jogo no estoque
@@ -68,15 +75,23 @@ def buscaJogo(nome,estoque):
         
         j = estoque[meio]
         
-        if(comparaNomes(nome,j['nome']) < 0):
-            fim = meio - 1
+        resultado = comparaNomes(nome,j['nome'])
         
-        elif(comparaNomes(nome,j['nome']) > 0): 
-            inicio = meio + 1
+        if(resultado != None):
+            if(resultado < 0):
+                fim = meio - 1
+            
+            elif(resultado > 0):
+                inicio = meio + 1
+            
+            else:
+                print("Jogo encontrado\n")
+                return j
         
         else:
-            return j
-        
+            break
+    
+    print("Jogo não encontrado\n")
     return -1
 
 #Função que acrescenta um jogo no estoque
@@ -88,6 +103,8 @@ def acrescentaJogo(nome,estoque):
         return -1
     
     jogo['qtd'] += 10
+    
+    print("Estoque abastecido com sucesso\n")
     
     return estoque
 
@@ -103,6 +120,8 @@ def preferenciaJogo(nome,preco,estoque):
         
         estoque = acrescentaJogo(nome,estoque)
         
+        print("Preferência feita\n")
+        
         return nome
     
     else:
@@ -110,6 +129,8 @@ def preferenciaJogo(nome,preco,estoque):
         
         if(estoque == -1):
             return -1
+        
+        print("Preferência já existente. Estoque abastecido em 10 unidades\n")
         
         return nome
         
@@ -123,6 +144,8 @@ def excluiJogo(nome,estoque):
     
     estoque.remove(jogo)
     
+    print("Jogo excluído com sucesso\n")
+    
     return nome       
 
 #Função de alterar dados de um jogo
@@ -133,11 +156,17 @@ def alteraJogo(nomeJogo,nomeNovo,preco,quantidade,estoque):
     if(jogo == -1):
         return -1
     
+    if(isinstance(preco,float) == False or isinstance(quantidade,int) == False or isinstance(nomeNovo,str) == False):
+        print("Erro: dados inválidos\n")
+        return -1
+    
     jogo['preco'] = preco
     jogo['qtd'] = quantidade
     jogo['nome'] = nomeNovo
     
     estoque.sort(key = getNome)
+    
+    print("Jogo alterado com sucesso\n")
     
     return 1
 
@@ -145,6 +174,7 @@ def alteraJogo(nomeJogo,nomeNovo,preco,quantidade,estoque):
 
 def exibeEstoque(estoque):
     if(len(estoque) == 0):
+        print("Estoque vazio\n")
         return -1
     
     for jogo in estoque:
@@ -181,12 +211,13 @@ def solicitaCompra(nome,estoque,valorPagar,qtdCompra):
 def vendeJogo(nome,estoque,valorPagar,qtdCompra):
     
     if(solicitaCompra(nome,estoque,valorPagar,qtdCompra) == -1):
+        print("Erro: não foi possível realizar a compra\n")
         return -1
     
     j = buscaJogo(nome,estoque)
     
     j['qtd'] -= qtdCompra
     
-    print("Compra realizada com sucesso")
+    print("Compra realizada com sucesso\n")
     
     return 1

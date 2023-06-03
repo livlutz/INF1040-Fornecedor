@@ -33,10 +33,10 @@ def testeMontaJogos():
     #Verificando os testes que falharam e passaram
         
     if(testesCertos == 2):
-        print("Teste passou com sucesso!\n")
+        print("Teste 1 passou com sucesso!\n")
     
     else:
-        print("Teste falhou\n")
+        print("Teste 1 falhou\n")
     
 #Testando a função de incluir jogos
 
@@ -74,10 +74,10 @@ def testeIncluiJogos():
         testesCertos += 1
     
     if (testesCertos == 3):
-        print("Teste passou com sucesso!\n")
+        print("Teste 2 passou com sucesso!\n")
     
     else:
-        print("Teste falhou\n")
+        print("Teste 2 falhou\n")
 
 #Testando a função de ordenar estoque
 
@@ -113,10 +113,10 @@ def testeBuscaJogo():
     #Verificando os testes que falharam e passaram
     
     if(testesCertos == 3):
-        print("Teste passou com sucesso!\n")
+        print("Teste 3 passou com sucesso!\n")
     
     else:
-        print("Teste falhou\n")
+        print("Teste 3 falhou\n")
 
 #Testando a função de acrescentar jogos
 
@@ -149,10 +149,10 @@ def testeAcrescentaJogo():
     #Verificando os testes que falharam e passaram
     
     if(testesCertos == 2):
-        print("Teste passou com sucesso!\n")
+        print("Teste 4 passou com sucesso!\n")
         
     else:
-        print("Teste falhou\n")
+        print("Teste 4 falhou\n")
 
 #Testando função de receber preferência de jogo
 
@@ -190,10 +190,10 @@ def testeRecebePreferencia():
     #Verificando os testes que falharam e passaram
     
     if(testesCertos == 3):
-        print("Teste passou com sucesso!\n")
+        print("Teste 5 passou com sucesso!\n")
         
     else:
-        print("Teste falhou\n")
+        print("Teste 5 falhou\n")
     
 #Testando a função de excluir jogos
 
@@ -229,10 +229,10 @@ def testeExcluiJogo():
     #Verificando os testes que falharam e passaram
     
     if(testesCertos == 2):
-        print("Teste passou com sucesso!\n")
+        print("Teste 6 passou com sucesso!\n")
         
     else:
-        print("Teste falhou\n")
+        print("Teste 6 falhou\n")
         
  
  #Testando a função de altear dados de um jogo
@@ -290,10 +290,10 @@ def testeAlteraJogo():
     #Verificando os testes que falharam e passaram
     
     if(testesCertos == 5):
-        print("Teste passou com sucesso!\n")
+        print("Teste 7 passou com sucesso!\n")
         
     else:
-        print("Teste falhou\n")
+        print("Teste 7 falhou\n")
 
 #Testando a função de exibir jogos no estoque
 
@@ -323,11 +323,10 @@ def testeExibeJogos():
     #Verificando os testes que falharam e passaram
     
     if(testesCertos == 2):
-        print("Teste passou com sucesso!\n")
+        print("Teste 8 passou com sucesso!\n")
         
     else:
-        print("Teste falhou\n")
-
+        print("Teste 8 falhou\n")
 
 #Testando a função de venda de jogos
 
@@ -371,10 +370,10 @@ def testeVendaJogo():
     #Verificando os testes que falharam e passaram
     
     if(testesCertos == 4):
-        print("Teste passou com sucesso!\n")
+        print("Teste 9 passou com sucesso!\n")
     
     else:
-        print("Teste falhou\n")
+        print("Teste 9 falhou\n")
     
     
 print("Testando função monta jogos:\n")
