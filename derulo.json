@@ -1,83 +1,69 @@
 {
-    "estoque":[
+    "estoque": [
         {
-            "nome" : "Xadrez",
-            "preco": 20.00,
-            "qtd": 8
-        },
-
-        {
-            "nome" : "Jogo da Vida",
-            "preco": 45.50,
-            "qtd": 20
-        },
-
-        {
-            "nome" : "Banco Imobiliário",
-            "preco": 100.00,
+            "nome": "Banco Imobili\u00c3\u00a1rio",
+            "preco": 100.0,
             "qtd": 5
         },
-
         {
-            "nome" : "Monopoly",
+            "nome": "Baralho",
+            "preco": 3.99,
+            "qtd": 90
+        },
+        {
+            "nome": "Batalha Naval",
+            "preco": 25.0,
+            "qtd": 25
+        },
+        {
+            "nome": "Cara a Cara",
+            "preco": 30.0,
+            "qtd": 30
+        },
+        {
+            "nome": "Damas",
+            "preco": 15.0,
+            "qtd": 20
+        },
+        {
+            "nome": "Detetive",
+            "preco": 80.0,
+            "qtd": 10
+        },
+        {
+            "nome": "Domin\u00c3\u00b3",
+            "preco": 20.0,
+            "qtd": 30
+        },
+        {
+            "nome": "Jogo da Mem\u00c3\u00b3ria",
+            "preco": 15.0,
+            "qtd": 40
+        },
+        {
+            "nome": "Jogo da Velha",
+            "preco": 10.0,
+            "qtd": 50
+        },
+        {
+            "nome": "Jogo da Vida",
+            "preco": 45.5,
+            "qtd": 20
+        },
+        {
+            "nome": "Monopoly",
             "preco": 56.79,
             "qtd": 50
         },
-
         {
-            "nome" : "Detetive",
-            "preco": 80.00,
-            "qtd": 10
-        },
-
-        {
-            "nome" : "War",
-            "preco": 120.00,
+            "nome": "War",
+            "preco": 120.0,
             "qtd": 15
         },
-
         {
-            "nome" : "Cara a Cara",
-            "preco": 30.00,
-            "qtd": 30
-        },
-
-        {
-            "nome" : "Batalha Naval",
-            "preco": 25.00,
-            "qtd": 25
-        },
-
-        {
-            "nome" : "Jogo da Memória",
-            "preco": 15.00,
-            "qtd": 40
-        },
-
-        {
-            "nome" : "Jogo da Velha",
-            "preco": 10.00,
-            "qtd": 50
-        },
-
-        {
-            "nome" : "Dominó",
-            "preco": 20.00,
-            "qtd": 30
-        },
-
-        {
-            "nome" : "Damas",
-            "preco": 15.00,
-            "qtd": 20
-        },
-
-        {
-            "nome" : "Baralho",
-            "preco": 3.99,
-            "qtd": 90
+            "nome": "Xadrez",
+            "preco": 20.0,
+            "qtd": 8
         }
-
     ]
-
 }

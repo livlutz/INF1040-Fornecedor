@@ -1,9 +1,9 @@
 #Estrutura de dados para armazenar os jogos
 
 jogo = {
-    'nome' : None,
-    'preco': None,
-    'qtd': None
+    "nome" : None,
+    "preco": None,
+    "qtd": None
 }
 
 #Monta um novo jogo (dicionário) a partir do seu nome (string), preço (float) e quantidade (int)
@@ -12,11 +12,11 @@ def montaJogo(nome,preco,quantidade):
     if(isinstance(nome,str) and isinstance(preco,float) and isinstance(quantidade,int)):
         novo_jogo = jogo.copy()
         
-        novo_jogo['nome'] = nome
+        novo_jogo["nome"] = nome
         
-        novo_jogo['preco'] = preco
+        novo_jogo["preco"] = preco
         
-        novo_jogo['qtd'] = quantidade
+        novo_jogo["qtd"] = quantidade
         
         print("Jogo montado com sucesso\n")
         
@@ -44,7 +44,7 @@ def incluiJogo(estoque,nome,preco,quantidade):
 #Função auxiliar na ordenação que pega o nome do jogo no estoque
 
 def getNome(jogo):
-    return jogo['nome']
+    return jogo["nome"]
 
 #Função auxiliar para busca que compara 2 strings de nome
 
@@ -75,7 +75,7 @@ def buscaJogo(nome,estoque):
         
         j = estoque[meio]
         
-        resultado = comparaNomes(nome,j['nome'])
+        resultado = comparaNomes(nome,getNome(j))
         
         if(resultado != None):
             if(resultado < 0):
@@ -102,7 +102,7 @@ def acrescentaJogo(nome,estoque):
     if(jogo == -1):
         return -1
     
-    jogo['qtd'] += 10
+    jogo["qtd"] += 10
     
     print("Estoque abastecido com sucesso\n")
     
@@ -160,9 +160,9 @@ def alteraJogo(nomeJogo,nomeNovo,preco,quantidade,estoque):
         print("Erro: dados inválidos\n")
         return -1
     
-    jogo['preco'] = preco
-    jogo['qtd'] = quantidade
-    jogo['nome'] = nomeNovo
+    jogo["preco"] = preco
+    jogo["qtd"] = quantidade
+    jogo["nome"] = nomeNovo
     
     estoque.sort(key = getNome)
     
@@ -178,9 +178,9 @@ def exibeEstoque(estoque):
         return -1
     
     for jogo in estoque:
-        print('Nome: %s '  %(jogo['nome']))
-        print('Preço: %s ' %(str(jogo['preco'])))
-        print('Quantidade: %s ' % (str(jogo['qtd'])))
+        print('Nome: %s '  %(getNome(jogo)))
+        print('Preço: %s ' %(str(jogo["preco"])))
+        print('Quantidade: %s ' % (str(jogo["qtd"])))
         print('-----------------------')
     
     return 1
@@ -194,11 +194,11 @@ def solicitaCompra(nome,estoque,valorPagar,qtdCompra):
         print("Jogo não encontrado")
         return -1
     
-    elif(qtdCompra > j['qtd']):
+    elif(qtdCompra > j["qtd"]):
         print("Quantidade insuficiente no estoque")
         return -1
     
-    elif(valorPagar < j['preco']):
+    elif(valorPagar < j["preco"]):
         print("Valor insuficiente")
         return -1
     
@@ -216,7 +216,7 @@ def vendeJogo(nome,estoque,valorPagar,qtdCompra):
     
     j = buscaJogo(nome,estoque)
     
-    j['qtd'] -= qtdCompra
+    j["qtd"] -= qtdCompra
     
     print("Compra realizada com sucesso\n")
     
