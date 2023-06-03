@@ -42,7 +42,9 @@ def getNome(jogo):
 #Função auxiliar para busca que compara 2 strings de nome
 
 def comparaNomes(nome1,nome2):
-    
+    if(not isinstance(nome1,str) or not isinstance(nome2,str)):
+        print("Erro: nome inválido\n")
+        
     if(nome1 > nome2):
         return 1
     
