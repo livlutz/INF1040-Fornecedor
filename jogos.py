@@ -169,7 +169,6 @@ def solicitaCompra(nome,estoque,valorPagar,qtdCompra):
         print("Compra autorizada")
         return 1
 
-
 #funcao de vender um jogo
 
 def vendeJogo(nome,estoque,valorPagar,qtdCompra):
