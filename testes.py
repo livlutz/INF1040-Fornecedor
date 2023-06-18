@@ -8,7 +8,6 @@ def testaResultados(esperado,recebido):
 
 def testeMontaJogos():
     #Variável de contagem de testes que dão certo
-    
     testesCertos = 0
     
     #Teste que dá certo,retorna um jogo montado
@@ -41,6 +40,7 @@ def testeMontaJogos():
 #Testando a função de incluir jogos
 
 def testeIncluiJogos():
+    #Variável de contagem de testes que dão certo
     testesCertos = 0
     
     #Teste que inclui jogo na lista vazia
@@ -82,9 +82,10 @@ def testeIncluiJogos():
 #Testando a função de ordenar estoque
 
 def testeBuscaJogo():
+    #Variável de contagem de testes que dão certo
     testesCertos = 0
-    #Estoque de exemplo
     
+    #Estoque de exemplo
     estoque = []
     jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
     precos = [20.00,45.50,56.79,48.99,3.99]
@@ -121,9 +122,10 @@ def testeBuscaJogo():
 #Testando a função de acrescentar jogos
 
 def testeAcrescentaJogo():
-    #Estoque de exemplo
+    #Variável de contagem de testes que dão certo
     testesCertos = 0
     
+    #Estoque de exemplo
     estoque = []
     jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
     precos = [20.00,45.50,56.79,48.99,3.99]
@@ -157,10 +159,10 @@ def testeAcrescentaJogo():
 #Testando função de receber preferência de jogo
 
 def testeRecebePreferencia():
+    #Variável de contagem de testes que dão certo
     testesCertos = 0
     
     #Estoque de exemplo
-    
     estoque = []
     jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
     precos = [20.00,45.50,56.79,48.99,3.99]
@@ -186,7 +188,6 @@ def testeRecebePreferencia():
     if(testaResultados(-1,preferenciaJogo("Jogo da velha","20.00",estoque))):
         testesCertos += 1
         
-    
     #Verificando os testes que falharam e passaram
     
     if(testesCertos == 3):
@@ -198,13 +199,11 @@ def testeRecebePreferencia():
 #Testando a função de excluir jogos
 
 def testeExcluiJogo():
-    
+    #Variável de contagem de testes que dão certo
     testesCertos=0
     
     #Estoque de exemplo
-    
     estoque = []
-    
     jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
     precos = [20.00,45.50,56.79,48.99,3.99]
     qtds = [8,20,50,35,90]
@@ -237,13 +236,11 @@ def testeExcluiJogo():
 #Testando a função de alterar dados de um jogo
 
 def testeAlteraJogo():
-     
+    #Variável de contagem de testes que dão certo
     testesCertos = 0
      
     #Estoque de exemplo
-    
     estoque = []
-    
     jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
     precos = [20.00,45.50,56.79,48.99,3.99]
     qtds = [8,20,50,35,90]
@@ -295,11 +292,11 @@ def testeAlteraJogo():
 #Testando a função de exibir jogos no estoque
 
 def testeExibeJogos():
+    #Variável de contagem de testes que dão certo
     testesCertos = 0
+    
     #Estoque de exemplo que dá certo
-    
     estoque = []
-    
     jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
     precos = [20.00,45.50,56.79,48.99,3.99]
     qtds = [8,20,50,35,90]
@@ -328,13 +325,11 @@ def testeExibeJogos():
 #Testando a função de venda de jogos
 
 def testeVendaJogo():
-    
+    #Variável de contagem de testes que dão certo
     testesCertos = 0
     
     #Estoque de exemplo
-    
     estoque = []
-    
     jogos = ["Xadrez","Jogo da vida","Monopoly","Detetive","Baralho"]
     precos = [20.00,45.50,56.79,48.99,3.99]
     qtds = [8,20,50,35,90]
