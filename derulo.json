@@ -36,24 +36,24 @@
             "qtd": 30
         },
         {
+            "nome": "JOGO DA VELHA",
+            "preco": 10.0,
+            "qtd": 70
+        },
+        {
             "nome": "JOGO DA VIDA",
             "preco": 15.0,
             "qtd": 40
         },
         {
-            "nome": "JOGO DA VELHA",
-            "preco": 10.0,
-            "qtd": 50
-        },
-        {
-            "nome": "JOGO DA VIDA",
-            "preco": 45.5,
-            "qtd": 20
-        },
-        {
             "nome": "MONOPOLY",
             "preco": 56.79,
             "qtd": 50
+        },
+        {
+            "nome": "STARDEW VALLEY",
+            "preco": 29.99,
+            "qtd": 10
         },
         {
             "nome": "WAR",
