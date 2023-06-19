@@ -1,7 +1,7 @@
 {
     "estoque": [
         {
-            "nome": "Banco Imobili\u00c3\u00a1rio",
+            "nome": "Banco Imobiliario",
             "preco": 100.0,
             "qtd": 5
         },
@@ -31,12 +31,12 @@
             "qtd": 10
         },
         {
-            "nome": "Domin\u00c3\u00b3",
+            "nome": "Domino",
             "preco": 20.0,
             "qtd": 30
         },
         {
-            "nome": "Jogo da Mem\u00c3\u00b3ria",
+            "nome": "Jogo da Memoria",
             "preco": 15.0,
             "qtd": 40
         },
