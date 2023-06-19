@@ -1,67 +1,67 @@
 {
     "estoque": [
         {
-            "nome": "Banco Imobiliario",
+            "nome": "BANCO IMOBILIARIO",
             "preco": 100.0,
             "qtd": 5
         },
         {
-            "nome": "Baralho",
+            "nome": "BARALHO",
             "preco": 3.99,
             "qtd": 90
         },
         {
-            "nome": "Batalha Naval",
+            "nome": "BARALHO",
             "preco": 25.0,
             "qtd": 25
         },
         {
-            "nome": "Cara a Cara",
+            "nome": "CARA A CARA",
             "preco": 30.0,
             "qtd": 30
         },
         {
-            "nome": "Damas",
+            "nome": "DAMAS",
             "preco": 15.0,
             "qtd": 20
         },
         {
-            "nome": "Detetive",
+            "nome": "DETETIVE",
             "preco": 80.0,
             "qtd": 10
         },
         {
-            "nome": "Domino",
+            "nome": "DOMINO",
             "preco": 20.0,
             "qtd": 30
         },
         {
-            "nome": "Jogo da Memoria",
+            "nome": "JOGO DA VIDA",
             "preco": 15.0,
             "qtd": 40
         },
         {
-            "nome": "Jogo da Velha",
+            "nome": "JOGO DA VELHA",
             "preco": 10.0,
             "qtd": 50
         },
         {
-            "nome": "Jogo da Vida",
+            "nome": "JOGO DA VIDA",
             "preco": 45.5,
             "qtd": 20
         },
         {
-            "nome": "Monopoly",
+            "nome": "MONOPOLY",
             "preco": 56.79,
             "qtd": 50
         },
         {
-            "nome": "War",
+            "nome": "WAR",
             "preco": 120.0,
             "qtd": 14
         },
         {
-            "nome": "Xadrez",
+            "nome": "XADREZ",
             "preco": 20.0,
             "qtd": 8
         }

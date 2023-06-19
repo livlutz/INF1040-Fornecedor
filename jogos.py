@@ -36,7 +36,7 @@ def montaJogo(nome,preco,quantidade):
         #Retorna -1 para indicar que o jogo não foi montado corretamente
         return -1
     
-#Monta um jogo e o inclui no estoque na última posição
+#Monta um jogo e o inclui no estoque em ordem alfabética
 
 def incluiJogo(estoque,nome,preco,quantidade):
     #Verifica se os dados são válidos montando o jogo
