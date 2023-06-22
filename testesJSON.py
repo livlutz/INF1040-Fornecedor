@@ -3,12 +3,12 @@ import json
 import os.path
 from jogos import *
 
-#precoPadrao é o preço que sera acrescentado ao jogo que tiver preferencia pela locadora e que nao estiver presente no estoque
+#precoPadrao é o preço que sera acrescentado ao jogo que tiver preferência pela locadora e que nao estiver presente no estoque
 precoPadrao = 29.99
 
-#Usaremos 3 Arquivos: de pedido/requerimento com o nome do jogo 
-# de resposta com o stauts se o jogo pedido existe ou não no estoque da fornecedora
-# e de preferência com o nome do jogo que terá a preferência pela locadora
+#Usaremos 3 Arquivos: de pedido/requerimento com uma lista de nomes de jogos
+# de resposta com um dicinário de nomes de jogos, status de disponibilidade no estoque e preços
+# e de preferência com um dicionário de nomes e preços de jogos a serem comprados
 
 #OBS: Os nomes dos jogos usados tanto pela fornecedora quanto pela locadora estão em capslock e sem acentos
 
@@ -16,14 +16,14 @@ precoPadrao = 29.99
 
 def receberPedido():
     #Verificando se o arquivo existe
-    file_exists = os.path.isfile('requerimentos.json')
+    file_exists = os.path.isfile('solicitacao.json')
     
     if(file_exists == False):
         print("Arquivo de requerimentos inexixtente\n")
     
     else:
         #Lendo dados do arquivo JSON de pedidos/ requerimentos com o nome do jogo 
-        with open('requerimentos.json','r') as requerimentos:
+        with open('solicitacao.json','r') as requerimentos:
             info = json.load(requerimentos)
             
             #Fechando o arquivo 
@@ -64,40 +64,67 @@ with open('derulo.json','r') as derulo:
 #Lendo o arquivo JSON de pedido
 info = receberPedido()
 
-#info tem o nome do jogo a ser buscado
-info = info['nome']
-
 #criando um arquivo JSON de resposta
 novo = open('resposta.json','w')
 
-#buscando o jogo no estoque
-jogo = buscaJogo(info,data['estoque'])   
+#escrever um dicionário no arquivo de resposta
 
-#se o jogo for encontrado
-if(jogo != -1):
-    #escrevendo a mensagem de sucesso no arquivo JSON de resposta
-    novo.write("Jogo encontrado\n")
+novo.write('{\n')
+
+#buscando o jogo no estoque
+for i in range (len(info)):
+    #jogo tem o nome do jogo
+    jogo = info[i]
     
-#se o jogo não for encontrado 
-else:
-    #escrevendo a mensagem de o jogo nao existe no estoque no arquivo JSON de resposta
-    novo.write("Jogo nao foi encontrado no estoque\n")
+    #buscando o jogo no estoque
+    jogo = buscaJogo(jogo,data['estoque'])
+    
+    #se for o último jogo da lista, não colocar a virgula
+    
+    if(i == len(info)-1):
+    
+        #se o jogo for encontrado
+        if(jogo != -1):
+            #escrevendo a mensagem de sucesso no arquivo JSON de resposta
+            mensagem = " disponivel" 
+            novo.write('"'+ info[i] + '"' + ' :{' + '"' + 'status' + '"' + ':' + '"' + mensagem + '"' + ', ' + '"' + 'preco' + '"' + ': ' + '"' + str(jogo['preco']) + '"' + '}\n')
+    
+        #se o jogo não for encontrado 
+        else:
+            #escrevendo a mensagem de o jogo nao existe no estoque no arquivo JSON de resposta
+            mensagem = " indisponivel"
+            novo.write('"'+ info[i] + '"' + ' :{' + '"' + 'status' + '"' + ':' + '"' + mensagem + '"' + ', ' + '"' + 'preco' + '"' + ': ' + '"' + '-' + '"' + '}\n')
+    
+    else:
+        
+        #se o jogo for encontrado
+        if(jogo != -1):
+            #escrevendo a mensagem de sucesso no arquivo JSON de resposta
+            mensagem = " disponivel"
+            novo.write('"'+ info[i] + '"' + ' :{' + '"' + 'status' + '"' + ':' + '"' + mensagem + '"' + ', ' + '"' + 'preco' + '"' + ': ' + '"' + str(jogo['preco']) + '"' + '},\n')
+            
+        #se o jogo não for encontrado
+        else:
+            #escrevendo a mensagem de o jogo nao existe no estoque no arquivo JSON de resposta
+            mensagem = " indisponivel"
+            novo.write('"'+ info[i] + '"' + ' :{' + '"' + 'status' + '"' + ':' + '"' + mensagem + '"' + ', ' + '"' + 'preco' + '"' + ': ' + '"' + '-' + '"' + '},\n')
+
+novo.write('}')
+
 
 #Fecha o arquivo de resposta
 novo.close()
 
 #Lendo o arquivo JSON de preferência
-pref = receberPreferencia()
-
-#pref tem o nome do jogo a ter preferência pela locadora
-pref=pref['nome']
+#pref = receberPreferencia()
 
 #Acrescentando a preferência de um jogo no estoque
-preferenciaJogo(pref,precoPadrao,data['estoque'])
+#for i in range (len(pref)):
+    #preferenciaJogo(pref[i],precoPadrao,data['estoque'])
 
 #Atualizando o arquivo JSON de estoque
-with open('derulo.json','w') as derulo:
-    json.dump(data,derulo,indent=4)
+#with open('derulo.json','w') as derulo:
+    #json.dump(data,derulo,indent=4)
 
 #Fechando o arquivo JSON
 derulo.close()
