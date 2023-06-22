@@ -100,13 +100,13 @@ for i in range (len(info)):
         #se o jogo for encontrado
         if(jogo != -1):
             #escrevendo a mensagem de sucesso no arquivo JSON de resposta
-            mensagem = " disponivel"
+            mensagem = "disponivel"
             novo.write('"'+ info[i] + '"' + ' :{' + '"' + 'status' + '"' + ':' + '"' + mensagem + '"' + ', ' + '"' + 'preco' + '"' + ': ' + '"' + str(jogo['preco']) + '"' + '},\n')
             
         #se o jogo não for encontrado
         else:
             #escrevendo a mensagem de o jogo nao existe no estoque no arquivo JSON de resposta
-            mensagem = " indisponivel"
+            mensagem = "indisponivel"
             novo.write('"'+ info[i] + '"' + ' :{' + '"' + 'status' + '"' + ':' + '"' + mensagem + '"' + ', ' + '"' + 'preco' + '"' + ': ' + '"' + '-' + '"' + '},\n')
 
 novo.write('}')
