@@ -3,6 +3,9 @@ import json
 import os.path
 from jogos import *
 
+
+requerimento_path = r'C:\Users\Murilo\Desktop\Projetos\Projeto_PM\comunicacao\requerimento.json'
+resposta_path = r'C:\Users\Murilo\Desktop\Projetos\Projeto_PM\comunicacao\resposta.json'
 #precoPadrao é o preço que sera acrescentado ao jogo que tiver preferência pela locadora e que nao estiver presente no estoque
 precoPadrao = 29.99
 
@@ -16,14 +19,14 @@ precoPadrao = 29.99
 
 def receberPedido():
     #Verificando se o arquivo existe
-    file_exists = os.path.isfile('solicitacao.json')
+    file_exists = os.path.isfile(requerimento_path)
     
     if(file_exists == False):
         print("Arquivo de requerimentos inexixtente\n")
     
     else:
         #Lendo dados do arquivo JSON de pedidos/ requerimentos com o nome do jogo 
-        with open('solicitacao.json','r') as requerimentos:
+        with open(requerimento_path,'r') as requerimentos:
             info = json.load(requerimentos)
             
             #Fechando o arquivo 
@@ -65,7 +68,7 @@ with open('derulo.json','r') as derulo:
 info = receberPedido()
 
 #criando um arquivo JSON de resposta
-novo = open('resposta.json','w')
+novo = open(resposta_path,'w')
 
 #escrever um dicionário no arquivo de resposta
 
@@ -86,13 +89,15 @@ for i in range (len(info)):
         #se o jogo for encontrado
         if(jogo != -1):
             #escrevendo a mensagem de sucesso no arquivo JSON de resposta
-            mensagem = " disponivel" 
+            mensagem = "disponivel" 
             novo.write('"'+ info[i] + '"' + ' :{' + '"' + 'status' + '"' + ':' + '"' + mensagem + '"' + ', ' + '"' + 'preco' + '"' + ': ' + '"' + str(jogo['preco']) + '"' + '}\n')
+            print("Venda realizada\n")
+            
     
         #se o jogo não for encontrado 
         else:
             #escrevendo a mensagem de o jogo nao existe no estoque no arquivo JSON de resposta
-            mensagem = " indisponivel"
+            mensagem = "indisponivel"
             novo.write('"'+ info[i] + '"' + ' :{' + '"' + 'status' + '"' + ':' + '"' + mensagem + '"' + ', ' + '"' + 'preco' + '"' + ': ' + '"' + '-' + '"' + '}\n')
     
     else:

@@ -6,9 +6,14 @@
             "qtd": 5
         },
         {
-            "nome": "BARALHO",
-            "preco": 3.99,
-            "qtd": 90
+            "nome": "LOVE LETTER",
+            "preco": 59.99,
+            "qtd": 5
+        },
+        {
+            "nome": "DEAD OF WINTER",
+            "preco": 20.00,
+            "qtd": 5
         },
         {
             "nome": "BARALHO",
@@ -49,11 +54,6 @@
             "nome": "MONOPOLY",
             "preco": 56.79,
             "qtd": 50
-        },
-        {
-            "nome": "STARDEW VALLEY",
-            "preco": 29.99,
-            "qtd": 10
         },
         {
             "nome": "WAR",
