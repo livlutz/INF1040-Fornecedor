@@ -121,15 +121,15 @@ novo.write('}')
 novo.close()
 
 #Lendo o arquivo JSON de preferência
-#pref = receberPreferencia()
+pref = receberPreferencia()
 
 #Acrescentando a preferência de um jogo no estoque
-#for i in range (len(pref)):
-    #preferenciaJogo(pref[i],precoPadrao,data['estoque'])
+for i in range (len(pref)):
+    preferenciaJogo(pref[i],precoPadrao,data['estoque'])
 
 #Atualizando o arquivo JSON de estoque
-#with open('derulo.json','w') as derulo:
-    #json.dump(data,derulo,indent=4)
+with open('derulo.json','w') as derulo:
+    json.dump(data,derulo,indent=4)
 
 #Fechando o arquivo JSON
 derulo.close()
